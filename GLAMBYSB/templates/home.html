@@ -1,0 +1,272 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta_description %}
+Welcome to GLAMBYSB – Your trusted partner in luxury skincare, haircare, and makeup wholesale distribution. Offering the finest cosmetics from top global brands.
+{% endblock %}
+
+{% block title %}Home - GLAMBYSB{% endblock %}
+
+{% block extra_css %}
+<style>
+
+
+  /* Adjust the hero section padding for better compactness */
+  .hero-section {
+    padding-top: 0;  /* Remove any space above the logo */
+    padding-bottom: 0;  /* Remove bottom padding to reduce space between the button and section */
+    position: relative;
+    text-align: center;
+    margin: 0;  /* Remove extra margin */
+  }
+  
+  /* Logo Container: Center logo and text over it */
+  .logo-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: -5px; /* Pull the logo and title closer together */
+    text-align: center;
+    z-index: 1;
+  }
+  
+  /* Logo (Image) Styling */
+  #logo-icon {
+    max-width: 40vh;  /* Resize logo image to a smaller, appropriate size */
+    height: auto;  /* Maintain aspect ratio */
+    display: block; /* Ensure it doesn't stretch */
+    margin: 0 auto; /* Center logo horizontally */
+    position: relative;
+    left:5px;
+    z-index: 1; /* Ensure logo stays above other elements */
+    transform: translateY(-50px); /* Move the logo upwards */
+
+  }
+  
+  /* GLAMBYSB Title styling */
+  #glambysb-title {
+    font-size: 56px; /* GLAMBYSB title font size */
+    font-weight: 700;
+    position: absolute;
+    top: 52%; /* Center vertically relative to logo */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Ensure it stays centered */
+    z-index: 2; /* Ensure title appears above the logo */
+    margin-bottom: 0; /* Remove any margin */
+  }
+  
+  /* Description Text */
+  #description {
+    margin-top: -40px; /* Space between title and description */
+    font-size: 1.2rem;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    padding: 0;/* Adjust padding for better centering */
+    z-index: 2; /* Ensure text appears above the background */
+    position: relative;
+    text-align: center;
+  }
+  
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- 1) HERO SECTION (bg-body-tertiary) -->
+
+<section class="hero-section text-center py-4 bg-body-tertiary"> 
+  <div class="container">
+    <!-- Logo Container: Positioned to place text over it -->
+    <div class="logo-container mb-2">
+      <img src="https://dl.dropbox.com/scl/fi/7dm9in8f470uomu85hldq/GLAMBYSB.png?rlkey=tt5445hhr8hvgodxwxmq317pb&st=9stkuv09&dl=0" alt="GLAMBYSB Logo" id="logo-icon">
+      <!-- GLAMBYSB Title positioned over the logo -->
+      <h1 class="display-4 mb-2" id="glambysb-title">GLAMBYSB</h1>
+      <!-- Description Text, positioned over the logo -->
+      <p class="lead mb-4" id="description">
+        Discover the finest wholesale skincare, haircare, and makeup products. Your go-to destination for luxury cosmetics at unbeatable prices. Providing top-quality products for salons, spas, and retailers worldwide.
+      </p>
+    <a href="#" class="btn btn-primary btn-lg">Browse Our Collection</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- 2) FEATURES SECTION (bg-body) -->
+<section class="features-section py-5 bg-body">
+  <div class="container">
+    <h2 class="text-center mb-5">Why Choose Us?</h2>
+    <div class="row g-4">
+      <!-- Feature 1 -->
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title">
+              <i class="bi bi-gift"></i> Premium Quality Products
+            </h3>
+            <p class="card-text">
+              We source the finest skincare, haircare, and makeup products from globally recognized luxury brands. Every product is guaranteed to meet the highest standards of quality and performance.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Feature 2 -->
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title">
+              <i class="bi bi-truck"></i> Reliable & Fast Shipping
+            </h3>
+            <p class="card-text">
+              We ensure fast and efficient delivery to keep your business running smoothly. Our logistics team guarantees timely shipments of your orders, anywhere in the region.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Feature 3 -->
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title">
+              <i class="bi bi-shield-lock"></i> Secure Ordering & Payment
+            </h3>
+            <p class="card-text">
+              Shop confidently with our secure online ordering system. Your payments are processed with top-grade security, ensuring a smooth and worry-free transaction every time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3) CTA SECTION (bg-primary text-white) -->
+<section class="cta-section py-5 text-white" style="background-color: #4c6ef5;">
+  <div class="container text-center">
+    <h2 class="mb-4">Ready to Stock Your Store with the Best Cosmetics?</h2>
+    <p class="mb-4">
+      Partner with GLAMBYSB and get access to exclusive wholesale prices for luxury skincare, makeup, and haircare products.
+    </p>
+    <div class="d-flex gap-3 justify-content-center">
+      <a href="#" class="btn btn-light btn-lg">Start Shopping</a>
+      <a href="#" class="btn btn-outline-light btn-lg">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- 4) DARK SIGN-UP SECTION (bg-body-secondary) -->
+<section class="py-5 bg-body-secondary">
+  <div class="container text-body">
+    <div class="row align-items-center">
+      <!-- Left text -->
+      <div class="col-md-6 d-flex flex-column justify-content-center">
+        <h2 class="display-5 mb-3">Exclusive Wholesale Access</h2>
+        <p class="lead">
+          Join our wholesale program to access premium skincare, haircare, and makeup products at competitive prices. We offer reliable shipping, easy reordering, and personalized service.
+        </p>
+        <p>
+          Whether you're a salon owner, retailer, or spa, GLAMBYSB has the luxury cosmetics you need to elevate your business offerings.
+        </p>
+      </div>
+      <!-- Right sign-up card -->
+      <div class="col-md-5 offset-md-1 mt-4 mt-md-0">
+        <div class="card bg-body p-4 text-body shadow-sm">
+          <h3 class="mb-3">Sign Up for Wholesale Access</h3>
+          <form>
+            <div class="mb-3">
+              <label for="signupEmail" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="signupEmail" placeholder="name@example.com" required>
+            </div>
+            <div class="mb-3">
+              <label for="signupPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="signupPassword" placeholder="********" required>
+            </div>
+            <button class="btn btn-primary w-100" type="submit">Get Started</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5) FEATURES WITH TITLE (bg-body-tertiary) -->
+<section class="py-5 bg-body-tertiary">
+  <div class="container text-body">
+    <div class="row g-3 align-items-center">
+      <!-- Left column -->
+      <div class="col-md-6 d-flex flex-column justify-content-center">
+        <h3>Luxury Skincare & Makeup</h3>
+        <p class="mb-4">
+          We specialize in luxury skincare, makeup, and haircare products from world-renowned brands. <strong>Boost your offerings with the finest products in the market</strong>.
+        </p>
+        <button class="btn btn-primary">Browse Our Brands</button>
+      </div>
+      <!-- Right column -->
+      <div class="col-md-6">
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <div class="p-3 text-center border rounded bg-body text-body">
+              <i class="bi bi-bar-chart-fill fs-1 text-success"></i>
+              <h5 class="mt-3">Exclusive Wholesale Prices</h5>
+              <p class="mb-0">Access the best prices on luxury skincare, haircare, and makeup products for your store or salon.</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="p-3 text-center border rounded bg-body text-body">
+              <i class="bi bi-gift-fill fs-1 text-danger"></i>
+              <h5 class="mt-3">Curated Luxury Collections</h5>
+              <p class="mb-0">Discover our curated collections of top-rated beauty products that are in high demand worldwide.</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="p-3 text-center border rounded bg-body text-body">
+              <i class="bi bi-cash-stack fs-1 text-primary"></i>
+              <h5 class="mt-3">Fast and Reliable Shipping</h5>
+              <p class="mb-0">We ensure fast, reliable shipping so your inventory stays stocked and ready to sell.</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="p-3 text-center border rounded bg-body text-body">
+              <i class="bi bi-archive-fill fs-1 text-info"></i>
+              <h5 class="mt-3">Sustainable and Eco-Friendly</h5>
+              <p class="mb-0">Many of our products are sustainably sourced, ensuring eco-conscious choices for your customers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6) JUMBOTRON (FUTURE DIRECTIONS) -->
+<section class="py-5 bg-body-secondary">
+  <div class="container text-body">
+    <div class="p-5 mb-4 rounded-3 text-center bg-body text-body">
+      <div class="mb-3">
+        <i class="bi bi-rocket-takeoff-fill fs-1 text-primary"></i>
+      </div>
+      <h2 class="display-5 fw-bold">Exciting New Arrivals</h2>
+      <p class="col-md-8 mx-auto">
+        Stay tuned as we bring in even more luxury beauty products from around the globe. The future of skincare, makeup, and haircare is here at GLAMBYSB.
+      </p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Explore New Arrivals</button>
+        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Contact Us</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Home page loaded');
+});
+
+
+</script>
+{% endblock %}

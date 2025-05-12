@@ -1,0 +1,224 @@
+{% extends 'base.html' %}
+<header>
+    {% block menubar %}{% endblock %}
+</header>
+{% block content %}
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Helvetica Neue', Arial, sans-serif; /* This is a guess, adjust as needed */
+        background: #fff; /* Assuming a white background */
+        color: #333; /* Default text color, assuming a dark grey */
+        line-height: 1.6;
+    }
+
+   .alert-container {
+        width: 100%;
+        margin-bottom: 1rem; /* Space between message and form */
+    }
+
+    .alert {
+        padding: 1rem;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        background-color: #dff0d8; /* Light green background for success messages */
+        color: #3c763d; /* Dark green text color for success messages */
+        text-align: center;
+    }
+
+
+    .jumbotron {
+        margin: 0; /* Remove default margins if necessary */
+        padding: 0; /* Remove default padding if necessary */
+        height: 20vh; /* Set the height to full viewport height */
+        overflow: hidden; /* Hide overflow */
+    }
+
+    .container-contact-img {
+        height: 100%; /* Full height of its parent */
+        background-image: url('https://dl.dropbox.com/scl/fi/9lq6kvvkjmuqx2djyhmhc/contactus.webp?rlkey=ylfsn5v7g2wykoopf9qdff2ii&dl=0');
+        background-position: center;
+        background-size: cover; /* Cover the entire area of the element */
+        background-repeat: no-repeat;
+    }
+    .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 50px 20px;
+    }
+    .container-map {
+        padding: 80px 40px;
+    }
+    .say-hello, .visit-us {
+        margin-bottom: 60px;
+    }
+    h2 {
+        color: #000; /* Assuming black for headings */
+        font-size: 32px; /* Adjust as needed */
+        margin-bottom: 20px;
+    }
+    .visit-us p {
+        text-align: justify;
+        text-justify: inter-word;
+        margin-bottom: 30px; /* Adjust as needed */
+        color: #666; /* Assuming a lighter grey for paragraph text */
+        font-size: 18px; /* This is a suggested size, adjust as needed */
+    }
+    p {
+        margin-bottom: 30px;
+        color: #666; /* Assuming a lighter grey for paragraph text */
+        font-size: 18px; /* Adjust as needed */
+    }
+    .contact-info div, .address-info div {
+        margin-bottom: 20px;
+        font-size: 18px; /* Adjust as needed */
+    }
+    .social-media a{
+       color: #000;
+    }
+    form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+    }
+    input[type="number"],
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        border: 1px solid #ccc; /* Assuming a light grey border */
+        border-radius: 4px;
+        padding: 15px;
+        font-size: 16px; /* Adjust as needed */
+    }
+    input[type="email"] {
+        grid-column: span 2; /* Make email input span two columns */
+    }
+    textarea {
+        grid-column: 1 / -1; /* Span across all columns */
+        resize: vertical;
+        height: 100px; /* Adjust as needed */
+    }
+    button {
+        background-color: #000; /* Assuming black for button */
+        color: #fff; /* Assuming white text for button */
+        padding: 15px 30px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        grid-column: 1 / -1; /* Span across all columns */
+        font-size: 18px; /* Adjust as needed */
+        text-transform: uppercase; /* Assuming uppercase for button text */
+    }
+    button:hover {
+        background-color: #333; /* Darker grey on hover */
+    }
+    .address-info, .contact-info {
+        font-weight: bold; /* Assuming bold for contact information */
+    }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        form {
+            grid-template-columns: 1fr;
+        }
+        input[type="number"],
+        input[type="text"],
+        input[type="email"],
+        button {
+            grid-column: 1 / -1;
+        }
+        
+    
+        .contact-info, .address-info {
+            display: block;
+        }
+    }
+    
+    /* Adjust this media query as necessary for larger screens */
+    @media (min-width: 1025px) {
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 40px;
+        }
+    
+        .say-hello {
+            grid-column: 1 / 2;
+        }
+    
+        .visit-us {
+            grid-column: 2 / 3;
+        }
+    }
+    </style>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container-contact-img">
+            <!-- Image is set as a background -->
+        </div>
+    </div>
+    
+<div class="contact-container">
+    <div class="say-hello">
+        <h2>Say Hello</h2>
+        <p>Please feel free to fill up your details and get in touch with us</p>
+        <div class="contact-info">
+            <div>Phone<br>+1 7325140100</div>
+            <div>Email<br>info@glambysb.com</div>
+            <div class="social-media">
+                <a href="#"><i class="fa-brands fa-threads"></i></a> &nbsp;
+                <a href="#"><i class="fa-brands fa-instagram"></i></a> &nbsp;
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+{% if messages %}
+    <div class="alert-container">
+        {% for message in messages %}
+            <div class="alert {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+        <form action="{% url 'contact' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="first_name" placeholder="First Name" required>
+            <input type="text" name="last_name" placeholder="Last Name" required>
+            <input type="number" name="mobile_number" placeholder=" Mobile or Phone" required>
+            <input type="text" name="company_name" placeholder="Company Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Message"></textarea>
+            <button type="submit">Send &nbsp;<i class="fa fa-paper-plane"></i></button>
+        </form>
+    </div>
+    <div class="visit-us">
+        <h2>Visit Us</h2>
+        <p>Welcome to GLAMBYSB LLC, your trusted partner in wholesale cosmetic distribution.
+            We take pride in offering an extensive range of beauty products from renowned brands, 
+            ensuring quality and diversity for all your cosmetic needs. Our dedicated team is committed to providing personalized solutions, 
+            whether you're seeking to stock your shelves with the latest trends or place custom orders tailored to your unique requirements. 
+            We encourage you to reach out with any questions, discuss your specific needs, or explore how we can help enhance your offerings. 
+            Connect with us through the form to discover the endless possibilities with Krisco Sales LLC.</p>
+        <div class="address-info">
+            <div>Address<br>10b Jules Ln, New Brunswick, NJ 08901</div>
+            <div>Opening Hours<br>Mon - Fri 8:00 am – 5:00 pm<br>Saturday - <br>Sunday - </div>
+        </div>
+    </div>
+</div>
+<center><h2>Get Directions to GLAMBYSB LLC</h4></center>
+<div class="container-map">
+    <div class="maps">
+        <iframe   
+        width="100%"
+        height="450"
+        style="border:0"
+        loading="lazy"
+        allowfullscreen
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3035.1440605901544!2d-74.48175362439376!3d40.47207785226954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3c57a53177443%3A0x1dfd5e097ec11c8d!2sKrisco%20Sales%20Llc!5e0!3m2!1sen!2sus!4v1708886856370!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+</body>
+{% endblock %}

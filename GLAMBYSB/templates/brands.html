@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  .pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination a {
+    margin: 0 5px;
+    color: black;
+    text-decoration: none;
+}
+
+
+.pagination .current {
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+}
+
+.pagination .current span {
+    padding: 5px 10px;
+}
+
+.pagination .dot {
+    margin: 0 2px;
+}
+
+.pagination .next, .pagination .prev {
+    font-weight: bold;
+}
+
+.pagination .disabled {
+    color: grey;
+}
+
+/* Additional styling to ensure enough spacing and centering */
+.pagination .spacer {
+    flex: 1;
+}
+
+.pagination li:first-child .current, .pagination li:last-child .current {
+    background: none;
+    color: black;
+}
+
+/* Styles for non-active page numbers */
+.pagination li a {
+    border: 1px solid transparent; /* Makes the non-active page numbers without border */
+    padding: 5px 10px;
+    border-radius: 50%; /* Circle shape */
+}
+
+/* Hover effect for non-active page numbers */
+.pagination li a:hover {
+    border-color: black;
+}
+  .container-brand{
+    margin: 0 auto;
+    padding: 40px;
+  }
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust minmax to your desired image size */
+    gap: 10px; /* Adjust the gap size as needed */
+    padding: 10px;
+    justify-items: center;
+  }
+
+  .image-grid-item {
+    border: 2px solid rgb(132, 132, 135); /* Adjust border color and width as needed */
+    padding: 5px; /* Adjust padding as needed */
+    width: 200px; /* Adjust width as needed */
+    height: 200px; /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* To handle images larger than the container */
+  }
+
+  .image-grid-item img {
+  width: 100%;       /* Full width of the container */
+  height: 100%;      /* Full height of the container */
+  object-fit: contain; /* Ensures the entire image fits inside the bounding box */
+  display: fill;    /* Remove extra space below the image */
+  }
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.title-container {
+    margin-right: 20px; /* Adjust this value to control the space between the <h4> and the search form */
+}
+
+.search-form {
+    display: flex;
+    flex-grow: 1;
+    justify-content: end;
+}
+
+.form-control, .btn {
+    height: 38px;
+    margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-form, .title-container {
+        width: 100%;
+        margin-right: 0; /* Removes the margin on smaller screens */
+    }
+
+    .form-control, .btn {
+        width: 100%;
+    }
+
+    .title-container > h4 {
+        margin-bottom: 10px; /* Adds space between the <h4> and the search form on smaller screens */
+    }
+}
+</style>
+</head>
+<body>
+  <div class="container-brand">
+    <div class="header-container">
+      <div class="title-container">
+        <h4>BRANDS WE OFFER</h4>
+      </div>
+      <form method="get" action="{% url 'brands' %}" class="search-form">
+        <input type="text" id="search-input" class="form-control" name="q" placeholder="Search brands..."
+          value="{{ search_query }}">
+        <button type="submit" class="btn btn-outline-secondary">Search</button>
+      </form>
+    </div>
+    <div class="image-grid">
+      {% for brand in page_obj %}
+      <div class="section">
+        <div class="image-grid-item">
+          <img src="{{ brand.image.url }}" alt="{{ brand.brand_name }}">
+        </div>
+        <center><span style="font-family: sans-serif;">{{ brand.brand_name }}</span></center>
+      </div>
+      {% endfor %}
+    </div>
+  
+  <!-- Pagination navigation -->
+      <ul class="pagination">
+      
+        {% if page_obj.has_previous %}
+        <!-- Include search query in First and Previous links -->
+        <li><a href="?q={{ search_query|urlencode }}&page=1" class="prev">&laquo; First</a></li>
+        <li><a href="?q={{ search_query|urlencode }}&page={{ page_obj.previous_page_number }}" class="prev">Previous</a></li>
+        {% else %}
+        <li><span class="disabled">&laquo; First</span></li>
+        <li><span class="disabled">Previous</span></li>
+        {% endif %}
+      
+        {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+        <!-- Include search query in current page link -->
+        <li><a href="?q={{ search_query|urlencode }}&page={{ num }}" class="current">{{ num }}</a></li>
+        {% else %}
+        <!-- Include search query in other page links -->
+        <li><a href="?q={{ search_query|urlencode }}&page={{ num }}">{{ num }}</a></li>
+        {% endif %}
+        {% endfor %}
+      
+        {% if page_obj.has_next %}
+        <!-- Include search query in Next and Last links -->
+        <li><a href="?q={{ search_query|urlencode }}&page={{ page_obj.next_page_number }}" class="next">Next</a></li>
+        <li><a href="?q={{ search_query|urlencode }}&page={{ page_obj.paginator.num_pages }}" class="next">Last &raquo;</a>
+        </li>
+        {% else %}
+        <li><span class="disabled">Next</span></li>
+        <li><span class="disabled">Last &raquo;</span></li>
+        {% endif %}
+      </ul>
+  </div>
+<!-- Include jQuery and jQuery UI -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $("#search-input").autocomplete({
+      source: "{% url 'brand-autocomplete' %}",
+      minLength: 1,  // Start after 1 character
+      select: function (event, ui) {
+        // Optionally do something when an item is selected
+        $("#search-input").val(ui.item.value);
+        // You can trigger a search or redirect here if needed
+      }
+    });
+  });
+</script>
+</body>
+{% endblock %}

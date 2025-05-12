@@ -1,0 +1,218 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}New Products - GLAMBYSB{% endblock %}
+
+{% block extra_css %}
+<style>
+  .product-jumbotron {
+    background: linear-gradient(145deg, #ffffff, #f4f4f4);
+    border-radius: 1.25rem;
+    padding: 4rem 2rem;
+    margin-bottom: 4rem;
+    box-shadow: 0 12px 45px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease-in-out;
+  }
+  .product-jumbotron:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 60px rgba(0, 0, 0, 0.1);
+  }
+  .product-jumbotron .display-5 {
+    font-weight: 800;
+    font-size: 2.75rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1.2rem;
+  }
+  .product-jumbotron img {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.07);
+  }
+  .product-jumbotron p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 0.6rem;
+    color: #333;
+  }
+  .product-jumbotron hr {
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
+    margin: 1.5rem 0;
+  }
+  .animated-text {
+    animation: fadeInUp 1s ease-in-out both;
+  }
+  .animated-btn {
+    animation: fadeInUp 1.4s ease-in-out both;
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="hero-section text-center py-5 bg-body-tertiary">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Discover Our Premier New Launches</h1>
+    <p class="lead">Top-tier beauty essentials chosen by professionals. Trusted by 20k+ clients globally.</p>
+  </div>
+</section>
+
+<div class="container">
+  <!-- Product 1 -->
+  <div class="product-jumbotron">
+    <div class="row align-items-center">
+      <div class="col-md-5 mb-4 mb-md-0">
+        <img src="https://dl.dropbox.com/scl/fi/u3c5rjq1x7ki8vr8i60bx/mightypimplepatch.webp?rlkey=ju2urgt2138vpqjnkgao6tusf&st=8m22j4wk&dl=1" alt="Mighty Patch">
+      </div>
+      <div class="col-md-7">
+        <h2 class="display-5 animated-text">Mighty Patch</h2>
+        <p class="animated-text">✔ Overnight acne solution with hydrocolloid</p>
+        <p class="animated-text">✔ Visibly reduces blemishes in 6-8 hours</p>
+        <p class="animated-text">✔ Gentle on sensitive skin and cruelty-free</p>
+        <hr>
+        <p class="lead animated-text">A cult-favorite pimple patch trusted by dermatologists worldwide.</p>
+        <p class="text-muted"><i class="bi bi-people"></i> 4,218 orders this week</p>
+        <a class="btn btn-primary btn-lg mt-3 animated-btn" href="#">Shop Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product 2 -->
+  <div class="product-jumbotron">
+    <div class="row align-items-center flex-row-reverse">
+      <div class="col-md-5 mb-4 mb-md-0">
+        <img src="https://dl.dropbox.com/scl/fi/dnx08875vqhe8rbprqsrs/laneige.webp?rlkey=bsot3app5sq8c9z3x8eg3xk0n&st=xlt09jig&dl=1" alt="Laneige Lip Sleeping Mask">
+      </div>
+      <div class="col-md-7">
+        <h2 class="display-5 animated-text">Laneige Lip Sleeping Mask</h2>
+        <p class="animated-text">✔ Vitamin C-rich berry extract nourishes lips overnight</p>
+        <p class="animated-text">✔ Smoothes, hydrates, and revives dry, flaky lips</p>
+        <p class="animated-text">✔ Includes moisture wrap™ technology</p>
+        <hr>
+        <p class="lead animated-text">Wake up with lips that feel soft, supple, and completely kissable.</p>
+        <p class="text-muted"><i class="bi bi-people"></i> 3,610 orders this week</p>
+        <a class="btn btn-primary btn-lg mt-3 animated-btn" href="#">Shop Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product 3 -->
+  <div class="product-jumbotron">
+    <div class="row align-items-center">
+      <div class="col-md-5 mb-4 mb-md-0">
+        <img src="https://dl.dropbox.com/scl/fi/qyzqpmlab305n14cky0ea/drjartpromask.webp?rlkey=5k1a4hxg0q4mrric1vxvzioe3&st=dv3wgumh&dl=1" alt="Dr. Jart+ Pro Mask">
+      </div>
+      <div class="col-md-7">
+        <h2 class="display-5 animated-text">Dr. Jart+ Pro Mask</h2>
+        <p class="animated-text">✔ Deeply hydrates with hyaluronic acid</p>
+        <p class="animated-text">✔ Instantly soothes redness and irritation</p>
+        <p class="animated-text">✔ Dermatologist-tested and fragrance-free</p>
+        <hr>
+        <p class="lead animated-text">Your emergency rescue treatment for intense skin hydration.</p>
+        <p class="text-muted"><i class="bi bi-people"></i> 2,984 orders this week</p>
+        <a class="btn btn-primary btn-lg mt-3 animated-btn" href="#">Shop Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product 4 -->
+  <div class="product-jumbotron">
+    <div class="row align-items-center flex-row-reverse">
+      <div class="col-md-5 mb-4 mb-md-0">
+        <img src="https://dl.dropbox.com/scl/fi/42maw1dnr4iio0544wxjz/sulwashoo.webp?rlkey=1357gcl4w7u5kheskd2p67mcc&st=5y2dnz3j&dl=1" alt="Sulwhasoo Concentrated Ginseng Serum">
+      </div>
+      <div class="col-md-7">
+        <h2 class="display-5 animated-text">Sulwhasoo Concentrated Ginseng Serum</h2>
+        <p class="animated-text">✔ Fortifies skin with Korean ginseng extracts</p>
+        <p class="animated-text">✔ Firms, lifts, and targets visible signs of aging</p>
+        <p class="animated-text">✔ Luxury heritage brand from Seoul</p>
+        <hr>
+        <p class="lead animated-text">A premium anti-aging powerhouse rooted in Asian herbal science.</p>
+        <p class="text-muted"><i class="bi bi-people"></i> 5,142 orders this week</p>
+        <a class="btn btn-primary btn-lg mt-3 animated-btn" href="#">Shop Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product 5 -->
+  <div class="product-jumbotron">
+    <div class="row align-items-center">
+      <div class="col-md-5 mb-4 mb-md-0">
+        <img src="https://dl.dropbox.com/scl/fi/9t564it51g2aipjkh9w8h/innisfree.webp?rlkey=g8prdj0s7znu2tsijb8lik2d9&st=j78ricxy&dl=0" alt="Dr. Jart+ Pro Mask">
+      </div>
+      <div class="col-md-7">
+        <h2 class="display-5 animated-text">Innis Free Tea Serum</h2>
+        <p class="animated-text">✔ Deeply hydrates with hyaluronic acid</p>
+        <p class="animated-text">✔ Instantly soothes redness and irritation</p>
+        <p class="animated-text">✔ Dermatologist-tested and fragrance-free</p>
+        <hr>
+        <p class="lead animated-text">Your emergency rescue treatment for intense skin hydration.</p>
+        <p class="text-muted"><i class="bi bi-people"></i> 2,984 orders this week</p>
+        <a class="btn btn-primary btn-lg mt-3 animated-btn" href="#">Shop Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product 6 -->
+  <div class="product-jumbotron">
+    <div class="row align-items-center flex-row-reverse">
+      <div class="col-md-5 mb-4 mb-md-0">
+        <img src="https://dl.dropbox.com/scl/fi/z8jhqrln3ckabaado8arl/neutrogena.webp?rlkey=2zlflrwoi3f4wetppf7ku0l2w&st=hvxf7nob&dl=0" alt="Sulwhasoo Concentrated Ginseng Serum">
+      </div>
+      <div class="col-md-7">
+        <h2 class="display-5 animated-text">Neutrogena Hydro Boost</h2>
+        <p class="animated-text">✔ Fortifies skin with Korean ginseng extracts</p>
+        <p class="animated-text">✔ Firms, lifts, and targets visible signs of aging</p>
+        <p class="animated-text">✔ Luxury heritage brand from Seoul</p>
+        <hr>
+        <p class="lead animated-text">A premium anti-aging powerhouse rooted in Asian herbal science.</p>
+        <p class="text-muted"><i class="bi bi-people"></i> 5,142 orders this week</p>
+        <a class="btn btn-primary btn-lg mt-3 animated-btn" href="#">Shop Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<section class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="display-6">Join the Beauty Revolution</h2>
+    <p class="lead">Experience the difference with our handpicked selections.</p>
+    <a class="btn btn-primary btn-lg mt-3" href="#">Explore More Products</a>
+  </div>
+</section>
+
+<section class="py-5 bg-body-secondary">
+  <div class="container text-center">
+    <h2 class="display-6">Why Our Clients Love These Picks</h2>
+    <p class="lead">Each product is curated by experts and embraced by beauty pros worldwide.</p>
+    <div class="row mt-5">
+      <div class="col-md-4">
+        <i class="bi bi-globe2 fs-1 text-primary"></i>
+        <h5 class="mt-3">Global Reach</h5>
+        <p>Shipped to 42+ countries with seamless service.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-patch-check-fill fs-1 text-success"></i>
+        <h5 class="mt-3">Expert Verified</h5>
+        <p>All new products go through rigorous quality testing.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-bag-heart-fill fs-1 text-danger"></i>
+        <h5 class="mt-3">High Repurchase Rate</h5>
+        <p>84% of clients reorder these featured items.</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

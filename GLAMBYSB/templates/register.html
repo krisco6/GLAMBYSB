@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title text-center mb-4">Create an Account</h3>
+          <div class="text-center">
+            <p class="mb-0">Already have an account? <a href="/accounts/login/">Sign in</a></p>
+            {% if messages %}
+              {% for message in messages %}
+                <div class="alert alert-info mt-2" role="alert">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          </div>
+          <br>
+          <p class="text-center text-muted">We Pick, Pack, and Ship</p>
+          <form method="post" novalidate>
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                  <input type="email" name="email" class="form-control" placeholder="Email address" required>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                  <input type="text" name="username" class="form-control" placeholder="Username" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-person-plus-fill"></i></span>
+                  <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-person-lines-fill"></i></span>
+                  <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
+              </div>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" name="terms" class="form-check-input" id="termsCheck" required>
+              <label class="form-check-label" for="termsCheck">
+                I have read and agree to the <a href="#">Terms of Service</a>
+              </label>
+            </div>
+            <center><div class="g-recaptcha" data-sitekey="{{ RECAPTCHA_PUBLIC_KEY }}"></div></center>
+            <div class="d-grid mb-3">
+              <button type="submit" class="btn btn-dark btn-lg">Sign up</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+  // Form submission handler
+  document.getElementById('register-form').addEventListener('submit', function(event) {
+    // Check if the reCAPTCHA is valid
+    var recaptchaResponse = grecaptcha.getResponse();
+    
+    // If reCAPTCHA is not filled out, prevent form submission
+    if (recaptchaResponse.length === 0) {
+      event.preventDefault();  // Prevent the form from submitting
+      alert('Please complete the CAPTCHA');
+    }
+  });
+</script>
+{% endblock %}

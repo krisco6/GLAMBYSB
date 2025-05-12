@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us - GLAMBYSB{% endblock %}
+
+{% block extra_css %}
+<style>
+  .hero-banner {
+    background: linear-gradient(to right, #f7f7f7, #fff);
+    padding: 6rem 0;
+  }
+  .section-icon i {
+    font-size: 2.5rem;
+    color: #4c6ef5;
+  }
+  .stats-box {
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    padding: 2rem;
+  }
+  .bg-feature {
+    background: url('https://source.unsplash.com/1600x900/?cosmetics,luxury') center center/cover no-repeat;
+    color: white;
+  }
+  .bg-feature h2 {
+    color: #fff;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- HERO BANNER -->
+<section class="hero-banner text-center">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Who We Are</h1>
+    <p class="lead text-muted">GLAMBYSB is a luxury beauty wholesale distributor dedicated to offering top-tier skincare, makeup, and haircare products at competitive prices.</p>
+  </div>
+</section>
+
+<!-- OUR ORIGIN STORY -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <img src="https://dl.dropbox.com/scl/fi/21fwjdfbjfy8zigvee52b/warehouse.jpg?rlkey=7051e0kmho089fkdqhp95lp0a&st=snep9irn&dl=0" class="img-fluid rounded" alt="Our warehouse">
+      </div>
+      <div class="col-md-6">
+        <h2 class="fw-bold">Started Small, Dreaming Big</h2>
+        <p class="text-muted">We began in a tiny room with one shelf of stock and a mission: to connect salons, retailers, and online sellers with authentic, high-quality beauty products. Today, GLAMBYSB serves hundreds of clients worldwide with a growing team and international suppliers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE VALUE -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Our Core Values</h2>
+      <p class="text-muted">These principles guide every decision we make.</p>
+    </div>
+    <div class="row text-center g-4">
+      <div class="col-md-4 section-icon">
+        <i class="bi bi-box"></i>
+        <h5 class="mt-3">Product Integrity</h5>
+        <p>We source only from certified, reputable vendors and inspect everything before delivery.</p>
+      </div>
+      <div class="col-md-4 section-icon">
+        <i class="bi bi-chat-dots"></i>
+        <h5 class="mt-3">Customer Trust</h5>
+        <p>We are responsive, honest, and transparent in every interaction.</p>
+      </div>
+      <div class="col-md-4 section-icon">
+        <i class="bi bi-rocket"></i>
+        <h5 class="mt-3">Agility</h5>
+        <p>Our small team moves quickly to adapt to new brands, trends, and market shifts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE HIGHLIGHT -->
+<section class="py-5 bg-feature">
+  <div class="container text-center" style="color:black">
+    <h2 class="fw-bold mb-3" style="color:black">Your Beauty Supply Partner</h2>
+    <p class="lead">From bulk salon essentials to indie brand closeouts — we’ve got it all under one roof.</p>
+  </div>
+</section>
+
+<!-- OUR TEAM -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Meet Our Team</h2>
+      <p class="text-muted">A passionate crew behind every fulfillment, follow-up, and offer.</p>
+    </div>
+    <div class="row justify-content-center text-center g-4">
+      <div class="col-md-6 col-lg-4">
+        <img src="https://dl.dropbox.com/scl/fi/po966xnelxn227pis92b8/shivika.png?rlkey=bbmd10eqitr2dl07mooxzcibo&st=vwl9l98g&dl=0" class="rounded-circle mb-3 img-fluid" alt="Shivika Bhatia">
+        <h5>Shivika Bhatia</h5>
+        <p class="text-muted">Founder & Head of Partnerships</p>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <img src="https://dl.dropbox.com/scl/fi/v8u7rphty72da7ftf4l00/bob.png?rlkey=ds56tmrmxim30grnla77jkreu&st=0ydn832p&dl=1" class="rounded-circle mb-3 img-fluid" alt="Bob Kumar">
+        <h5>Bob Kumar</h5>
+        <p class="text-muted">President</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- STATS SECTION -->
+<section class="py-5 bg-body-tertiary">
+  <div class="container">
+    <div class="row text-center g-4">
+      <div class="col-md-3">
+        <div class="stats-box">
+          <h2 class="fw-bold">35+</h2>
+          <p>Brand Partnerships</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stats-box">
+          <h2 class="fw-bold">15,000+</h2>
+          <p>Units Shipped Monthly</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stats-box">
+          <h2 class="fw-bold">4.9/5</h2>
+          <p>Client Satisfaction Score</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stats-box">
+          <h2 class="fw-bold">12</h2>
+          <p>Team Members</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT LOVE SECTION -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Our Clients Say It Best</h2>
+      <p class="text-muted">What keeps our customers coming back again and again?</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="bg-light p-4 rounded shadow-sm h-100">
+          <p>"I was nervous buying from a new wholesaler, but GLAMBYSB's service and pricing beat everyone else I’ve worked with. They’re now my go-to."</p>
+          <small class="text-muted">— Nicole, Texas</small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="bg-light p-4 rounded shadow-sm h-100">
+          <p>"What I love most is their responsiveness. Whether it's an urgent order or a return issue — I always get a solution fast."</p>
+          <small class="text-muted">— Daniel, Miami</small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="bg-light p-4 rounded shadow-sm h-100">
+          <p>"They helped us discover brands we now can’t live without. Excellent sourcing team and top communication!"</p>
+          <small class="text-muted">— Sarah, NYC</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="py-5 text-white" style="background: #4c6ef5;">
+  <div class="container text-center">
+    <h2 class="display-6 mb-3">Let’s Grow Together</h2>
+    <p class="lead">Whether you're a salon, e-commerce brand, or distributor, we’d love to work with you.</p>
+    <a href="#" class="btn btn-light btn-lg px-4 mt-3">Contact Our Team</a>
+  </div>
+</section>
+{% endblock %}
